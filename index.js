@@ -277,6 +277,14 @@ function createPanZoom(domElement, options) {
     speed = newSpeed;
   }
 
+  function zoomIn() {
+    onKeyDown({ keyCode: 107 })
+  }
+
+  function zoomOut() {
+    onKeyDown({ keyCode: 109 })
+  }
+
   function getPoint() {
     return {
       x: transform.x,
@@ -1044,10 +1052,5 @@ function autoRun() {
     return { name: name, value: value };
   }
 }
-function zoomIn() {
-  onKeyDown({ keyCode: 107 })
-}
-function zoomOut() {
-  onKeyDown({ keyCode: 109 })
-}
+
 autoRun();

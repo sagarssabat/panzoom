@@ -135,16 +135,19 @@ function createPanZoom(domElement, options) {
     setTransformOrigin: setTransformOrigin,
 
     getZoomSpeed: getZoomSpeed,
-    setZoomSpeed: setZoomSpeed
+    setZoomSpeed: setZoomSpeed,
+
+    zoomIn: zoomIn,
+    zoomOut: zoomOut
   };
 
   eventify(api);
-  
+
   var initialX = typeof options.initialX === 'number' ? options.initialX : transform.x;
   var initialY = typeof options.initialY === 'number' ? options.initialY : transform.y;
   var initialZoom = typeof options.initialZoom === 'number' ? options.initialZoom : transform.scale;
 
-  if(initialX != transform.x || initialY != transform.y || initialZoom != transform.Scale){
+  if (initialX != transform.x || initialY != transform.y || initialZoom != transform.Scale) {
     zoomAbs(initialX, initialY, initialZoom);
   }
 
@@ -1041,6 +1044,10 @@ function autoRun() {
     return { name: name, value: value };
   }
 }
-
+function zoomIn() {
+  onKeyDown({ keyCode: 107 })
+}
+function zoomOut() {
+  onKeyDown({ keyCode: 109 })
+}
 autoRun();
-	
